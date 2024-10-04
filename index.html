@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estilo.css">
+    <title>Tarjeta de Felicitaciones</title>
+</head>
+<body>
+    
+<header>¡Crea tu tarjeta de Felicitaciones!</header>
+
+<section id="main-container">
+    <article id="vista">
+        <div id="tarjeta" style="border: 10px solid transparent; padding: 10px; position: relative; height: 100%; width: 100%;">
+            <img id="marcoSeleccionado" src="" alt="Marco" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+            <img id="fotoGrande" src="./img/SanValentin.png" alt="Imagen principal" style="z-index: 2; position: relative; width: 100%; height: 100%; object-fit: cover;">
+            <div id="textoTarjeta" style="z-index: 3; position: absolute; top: 70%; left: 10%; color: white;">
+                <h2 id="dedicatoria">Dedicatoria</h2>
+                <h3 id="encabezado">Encabezado</h3>
+                <p id="mensaje">Escribe tu mensaje aquí</p>
+            </div>
+        </div>
+    </article>
+
+    <article id="formulario">
+        <div id="opciones">
+            <label for="tema">Elige un Tema:</label>
+            <select id="tema" onchange="tema()">
+                <option value="navidad">Navidad</option>
+                <option value="halloween">Halloween</option>
+                <option value="diademuertos">Día de Muertos</option>
+            </select>
+
+            <label for="color">Color de Fondo:</label>
+            <input type="color" id="color" onchange="cambiarColorFondo()">
+
+            <label>Elige un Marco:</label>
+            <div id="marcos">
+                <input type="radio" name="marco" id="t1" onclick="seleccionarMarco('marco1')">
+                <img src="./img/Navidad1.png" alt="marco 1" class="marco" id="marco1">
+
+                <input type="radio" name="marco" id="t2" onclick="seleccionarMarco('marco2')">
+                <img src="./img/Navidad2.png" alt="marco 2" class="marco" id="marco2">
+
+                <input type="radio" name="marco" id="t3" onclick="seleccionarMarco('marco3')">
+                <img src="./img/Navidad3.avif" alt="marco 3" class="marco" id="marco3">
+            </div>
+
+            <label>Elige una Imagen:</label>
+            <div id="imagenes">
+                <img src="./img/N1.png" alt="foto 1" class="foto" id="foto1" onclick="seleccionarImagen('foto1')">
+                <img src="./img/N2.png" alt="foto 2" class="foto" id="foto2" onclick="seleccionarImagen('foto2')">
+                <img src="./img/N3.png" alt="foto 3" class="foto" id="foto3" onclick="seleccionarImagen('foto3')">
+            </div>
+        </div>
+
+        <div id="datos">
+            <label>Dedicatoria:</label>
+            <input type="text" id="inputDedicatoria" placeholder="¿A quién se lo dedicas?" oninput="actualizarTexto()">
+            <input type="color" id="colorDedicatoria" onchange="cambiarColorTexto('colorDedicatoria')">
+        
+            <label>Encabezado:</label>
+            <input type="text" id="inputEncabezado" placeholder="Encabezado" oninput="actualizarTexto()">
+            <input type="color" id="colorEncabezado" onchange="cambiarColorTexto('colorEncabezado')">
+        
+            <label>Mensaje:</label>
+            <textarea id="inputMensaje" placeholder="Escribe tu mensaje" oninput="actualizarTexto()"></textarea>
+            <input type="color" id="colorMensaje" onchange="cambiarColorTexto('colorMensaje')">
+        </div>
+        
+        <!-- Botón para abrir la tarjeta en una nueva ventana -->
+        <button id="btnAbrir" onclick="abrirTarjeta()">Abrir Tarjeta en Nueva Ventana</button>
+        
+    </article>
+</section>
+
+<footer>
+Regina Ruiz González
+EVN402
+</footer>
+
+<script src="./js/script.js"></script>
+</body>
+</html>
